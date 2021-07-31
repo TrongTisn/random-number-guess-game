@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1627704664 source:e:\cpp_project_(cannot_use_space_in_directory_path)\variables\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+
+1627744019 source:e:\cpp_project_(cannot_use_space_in_directory_path)\random-number-game\main.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+

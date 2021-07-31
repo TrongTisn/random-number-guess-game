@@ -16,7 +16,7 @@ int main(void) {
     //green console
     system("color a");
     //game function
-    int gameProcessor() {
+    void gameProcessor() {
            do {
             //ask random number
         printf("\nWhat is the random number?\n");
@@ -97,11 +97,9 @@ int main(void) {
            //game function
             gameProcessor();
     } else if (gameMode == 2) {
-            printf("\n**WARNING**: After enter a random number, it will be remained.\n");
-            printf("Solution: Type a random number after enter the random number\n");
-            printf("(This is a known bug, and I am fixing it!)\n\n");
-            printf("Please input the random number: ");
-            scanf("%d\n",&ranNum);
+            printf("\nPlease input the random number: ");
+            scanf("%d",&ranNum);
+            printf("\n");
             system("cls");
             gameProcessor();
 
