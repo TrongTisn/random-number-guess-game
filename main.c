@@ -12,7 +12,8 @@ int main(void) {
     int playAgain = 1;
     int gameMode;
     int levelType;
-    int guessCount;
+    int guessCount = 0;
+    int resetScore;
     //green console
     system("color a");
     //game function
@@ -34,13 +35,19 @@ int main(void) {
             guessCount++;
         } else {
             printf("<<<<< You have found it, the number is %d >>>>>\n", ranNum);
-            printf("Your score: %d\n",guessCount + 1);
-            printf("Do you want to play again?  (1/0)\n");
+            printf("Your score: %d\n",guessCount);
+            //reset score
+            printf("Do you want to reset your score? (1/0): ");
+            scanf("%d",&resetScore);
+            if (resetScore) {
+                guessCount = 0;
+            }
+            //some more stuffs
+            printf("Do you want to play again? (1/0): ");
             scanf("%d",&playAgain);
-            printf("\n\n");
+            printf("\n");
         }
     } while (userInput != ranNum);
-
     }
     //program ui
     //welcome
@@ -50,7 +57,8 @@ int main(void) {
     printf("https://www.facebook.com/T1mpleo/ \n\n");
 
     printf("RULE: \n");
-    printf("The lowest score, wins\n\n");
+    printf("The lowest score, wins.\n");
+    printf("Make a 'guess in one' and you will win the game \n\n");
     while (playAgain) {
     //2 player mode
     printf("GAME MODE: \n");
@@ -89,7 +97,7 @@ int main(void) {
                     break;
             }
             } else {
-             printf("\nYou entered an unsupported option, please try again!\n\n");
+             printf("\nYou entered an unsupported level, please try again!\n\n");
             }
             //create random number
             srand (time(NULL));
@@ -104,7 +112,7 @@ int main(void) {
             gameProcessor();
 
     } else {
-     printf("\nYou entered an unsupported option, please try again!\n\n");
+     printf("\nYou entered an unsupported game mode, please try again!\n\n");
     }
 }
 }
