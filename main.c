@@ -14,6 +14,7 @@ int main(void) {
     int levelType;
     int guessCount = 0;
     int resetScore;
+    int resetScoreGuessInOne = 0;
     //green console
     system("color a");
     //game function
@@ -34,6 +35,21 @@ int main(void) {
             printf("\n\n");
             guessCount++;
         } else {
+            if (guessCount == 0 ) {
+                printf("Congratulation ! You made a 'guess in one'.\n");
+                printf("You win the game\n");
+                //ascii art
+               printf(" _                                 \n");
+               printf("| |                                \n");
+               printf("| |__   ___   ___  _ __ __ _ _   _ \n");
+               printf("| '_ \ / _ \ / _ \| '__/ _` | | | |\n");
+               printf("| | | | (_) | (_) | | | (_| | |_| |\n");
+               printf("|_| |_|\___/ \___/|_|  \__,_|\__, |\n");
+               printf("                              __/ |\n");
+               printf("                             |___/ \n\n");
+            } else if  (guessCount != 0 && resetScoreGuessInOne == 0) {
+                printf("You didn't make a guess in one, too bad\n");
+            }
             printf("<<<<< You have found it, the number is %d >>>>>\n", ranNum);
             printf("Your score: %d\n",guessCount);
             //reset score
@@ -41,6 +57,9 @@ int main(void) {
             scanf("%d",&resetScore);
             if (resetScore) {
                 guessCount = 0;
+                resetScoreGuessInOne = 1;
+            } else {
+                resetScoreGuessInOne = 0;
             }
             //some more stuffs
             printf("Do you want to play again? (1/0): ");
@@ -57,6 +76,7 @@ int main(void) {
     printf("https://www.facebook.com/T1mpleo/ \n\n");
 
     printf("RULE: \n");
+    printf("Guess the random number\n");
     printf("The lowest score, wins.\n");
     printf("Make a 'guess in one' and you will win the game \n\n");
     while (playAgain) {
@@ -105,6 +125,7 @@ int main(void) {
            //game function
             gameProcessor();
     } else if (gameMode == 2) {
+
             printf("\nPlease input the random number: ");
             scanf("%d",&ranNum);
             printf("\n");
